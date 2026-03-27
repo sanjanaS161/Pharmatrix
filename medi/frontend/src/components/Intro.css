@@ -1,0 +1,175 @@
+/* Intro.css - Cinematic PHARMATRIX Loader */
+
+.intro-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: linear-gradient(135deg, #f7fbff, #eaf4ff);
+    z-index: 9999;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    animation: fadeOutIntro 0.8s ease-in-out 3s forwards;
+}
+
+/* Base style for the text container */
+.intro-text {
+    position: relative;
+    font-size: 4rem;
+    font-weight: 800;
+    letter-spacing: 0.2em;
+    color: transparent;
+    /* Text is transparent initially to show glow effects */
+    text-transform: uppercase;
+    z-index: 10;
+    display: flex;
+    animation: zoomForward 1s ease-in-out 2.5s forwards;
+}
+
+/* Individual character styles */
+.intro-char {
+    display: inline-block;
+    color: #1f2937;
+    opacity: 0;
+    transform: translateZ(0);
+    text-shadow: 0 0 0 transparent;
+    animation: formLetter 0.5s ease-out forwards;
+    animation-delay: calc(var(--char-index) * 0.1s + 0.5s);
+}
+
+/* Letter formation from particles/glow */
+@keyframes formLetter {
+    0% {
+        opacity: 0;
+        text-shadow: 0 0 16px rgba(47, 128, 237, 0.35), 0 0 30px rgba(86, 204, 242, 0.3);
+        transform: scale(1.5) filter(blur(10px));
+        color: transparent;
+    }
+
+    50% {
+        opacity: 0.8;
+        text-shadow: 0 0 10px rgba(47, 128, 237, 0.35), 0 0 18px rgba(86, 204, 242, 0.25);
+        color: #2f80ed;
+    }
+
+    100% {
+        opacity: 1;
+        text-shadow: 0 0 4px rgba(47, 128, 237, 0.28), 0 0 10px rgba(86, 204, 242, 0.2);
+        transform: scale(1) filter(blur(0px));
+        color: #1f2937;
+    }
+}
+
+/* The horizontal light streak effect */
+.light-streak {
+    position: absolute;
+    top: 50%;
+    left: -100%;
+    width: 200%;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, #56ccf2, transparent);
+    box-shadow: 0 0 8px rgba(47, 128, 237, 0.35), 0 0 14px rgba(86, 204, 242, 0.28);
+    z-index: 11;
+    opacity: 0;
+    transform: translateY(-50%) rotate(-5deg);
+    animation: scanLight 0.8s ease-in-out 2s forwards;
+}
+
+@keyframes scanLight {
+    0% {
+        left: -100%;
+        opacity: 0;
+    }
+
+    20% {
+        opacity: 1;
+    }
+
+    80% {
+        opacity: 1;
+    }
+
+    100% {
+        left: 100%;
+        opacity: 0;
+    }
+}
+
+/* Zoom forward and fade out the whole text block before revealing homepage */
+@keyframes zoomForward {
+    0% {
+        transform: scale(1);
+    }
+
+    100% {
+        transform: scale(3);
+        opacity: 0;
+        filter: blur(10px);
+    }
+}
+
+/* Fade out the full screen container */
+@keyframes fadeOutIntro {
+    0% {
+        opacity: 1;
+        visibility: visible;
+    }
+
+    100% {
+        opacity: 0;
+        visibility: hidden;
+    }
+}
+
+/* Floating particles in the background */
+.particles-layer {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 100%;
+    height: 100%;
+    transform: translate(-50%, -50%);
+    z-index: 5;
+    pointer-events: none;
+}
+
+.particle {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 4px;
+    height: 4px;
+    background: #56ccf2;
+    border-radius: 50%;
+    box-shadow: 0 0 10px rgba(47, 128, 237, 0.3);
+    opacity: 0;
+    /* Move from random position TO the center where they form the word */
+    animation: particleGather 1.5s cubic-bezier(0.25, 1, 0.5, 1) forwards;
+    animation-delay: calc(var(--i) * 0.02s);
+}
+
+@keyframes particleGather {
+    0% {
+        transform: translate(var(--x), var(--y)) scale(1);
+        opacity: 0;
+    }
+
+    20% {
+        opacity: 1;
+    }
+
+    100% {
+        /* They suck into the center and vanish just as the text forms */
+        transform: translate(0, 0) scale(0);
+        opacity: 0;
+    }
+}
+
+@media (max-width: 768px) {
+    .intro-text {
+        font-size: 2.5rem;
+    }
+}

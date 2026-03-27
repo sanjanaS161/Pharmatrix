@@ -1,0 +1,8 @@
+venv/
+__MACOSX/
+__pycache__/
+*.pyc
+.env
+.env.local
+.env.*.local
+node_modules/

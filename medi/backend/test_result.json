@@ -1,0 +1,18 @@
+{
+  "ocr_text": "Error: Tesseract is not installed. Please install from: https://github.com/UB-Mannheim/tesseract/wiki",
+  "medicine_data": {
+    "name": null,
+    "generic_name": null,
+    "purpose": null,
+    "who_can_take": null,
+    "dosage": null,
+    "food_instruction": null,
+    "warnings": "Failed to extract information due to missing Tesseract installation.",
+    "doctor_consultation_required": null,
+    "expiry_date": null,
+    "is_expired": null,
+    "expiry_message": "Unable to determine expiry status due to missing Tesseract installation."
+  },
+  "expiry_message": "Unable to determine expiry status due to missing Tesseract installation.",
+  "is_expired": null
+}

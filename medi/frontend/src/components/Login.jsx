@@ -44,7 +44,7 @@ function Login() {
         setAnimationState('authenticating');
 
         try {
-            const res = await axios.post(`${API_URL}/auth/login`, {
+           const res = await axios.post(`${API_URL}/login`, {
                 login_id: loginId.trim(),
                 password: password
             });
@@ -84,7 +84,7 @@ function Login() {
             }
 
             const fullPhone = selectedCountry.code + cleanPhone;
-            const res = await axios.post(`${API_URL}/auth/register`, {
+            const res = await axios.post(`${API_URL}/register`, {
                 username: username.trim(),
                 email: email.trim(),
                 phone_number: fullPhone,

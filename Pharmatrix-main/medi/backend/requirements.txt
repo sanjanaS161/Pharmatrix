@@ -1,0 +1,13 @@
+twilio
+python-dotenv
+fastapi
+uvicorn
+sqlalchemy
+python-multipart
+requests
+pillow
+pytesseract
+passlib[bcrypt]
+pymongo[srv]
+dnspython
+bcrypt

@@ -5,7 +5,7 @@ import { useAuth } from '../AuthContext';
 import { Phone, User, ShieldCheck, ShieldAlert, CheckCircle2, Loader2, Globe, ChevronDown } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 
-const API_URL = 'http://localhost:8000';
+const API_URL = 'http://pharmatrix-backend.onrender.com';
 
 const COUNTRY_CODES = [
     { code: '+91', country: 'India', flag: '🇮🇳' },

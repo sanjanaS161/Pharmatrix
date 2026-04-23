@@ -8,7 +8,7 @@ import {
     CheckCircle2, RefreshCw
 } from 'lucide-react';
 
-const API_URL = 'http://localhost:8000';
+const API_URL = 'http://pharmatrix-backend.onrender.com';
 
 const MEDICINE_TYPES = ['All', 'Tablet', 'Capsule', 'Syrup', 'Injection', 'Drops', 'Cream', 'Other'];
 

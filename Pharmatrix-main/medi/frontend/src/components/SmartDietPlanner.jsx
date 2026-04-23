@@ -10,7 +10,7 @@ import {
     Check
 } from 'lucide-react';
 
-const API_URL = 'http://localhost:8000';
+const API_URL = 'http://pharmatrix-backend.onrender.com';
 
 const CATEGORIES = [
     {

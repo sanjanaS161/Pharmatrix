@@ -46,7 +46,7 @@ From the `backend` directory:
 # Ensure venv is activated
 uvicorn main:app --reload
 ```
-The API will run at `http://localhost:8000`.
+The API will run at `http://pharmatrix-backend.onrender.com`.
 
 ### Start the Frontend Server
 From the `frontend` directory:

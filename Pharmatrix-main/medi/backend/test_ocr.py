@@ -2,7 +2,7 @@ import requests
 import sys
 
 # Test the /scan endpoint with a sample image
-API_URL = "http://localhost:8000"
+API_URL = "http://pharmatrix-backend.onrender.com"
 image_path = r"C:/Users/sanja/.gemini/antigravity/brain/31ef6828-86bf-41b3-b10c-ce3fe2c80681/medicine_test_sample_1768900930523.png"
 
 print("🧪 Testing OCR Scanner Endpoint...")

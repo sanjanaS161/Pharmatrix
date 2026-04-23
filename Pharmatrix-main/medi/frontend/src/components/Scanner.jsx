@@ -2,7 +2,7 @@ import React, { useRef, useState, useEffect, useCallback } from 'react';
 import axios from 'axios';
 import { Camera, Upload, RefreshCw, Volume2, VolumeX, BriefcaseMedical, CheckCircle2, Loader2 } from 'lucide-react';
 
-const API_URL = 'http://localhost:8000';
+const API_URL = 'http://pharmatrix-backend.onrender.com';
 
 function Scanner() {
     const videoRef = useRef(null);

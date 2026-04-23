@@ -14,7 +14,7 @@ import {
     ClipboardList,
 } from 'lucide-react';
 
-const API_URL = 'http://localhost:8000';
+const API_URL = 'http://pharmatrix-backend.onrender.com';
 
 const TYPE_COLORS = {
     Tablet: '#2f80ed',

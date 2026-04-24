@@ -1,10 +1,11 @@
 import React, { useRef, useState, useEffect, useCallback } from 'react';
 import axios from 'axios';
 import { Camera, Upload, RefreshCw, Volume2, VolumeX, BriefcaseMedical, CheckCircle2, Loader2 } from 'lucide-react';
-
-const API_URL = 'http://pharmatrix-backend.onrender.com';
+import { useAuth } from '../AuthContext';
+import API_URL from '../api';
 
 function Scanner() {
+    const { user } = useAuth();
     const videoRef = useRef(null);
     const canvasRef = useRef(null);
     const streamRef = useRef(null);
@@ -191,6 +192,7 @@ function Scanner() {
         try {
             const med = result.medicine_data;
             await axios.post(`${API_URL}/cabinet`, {
+                user_id: user?.id || 0,
                 name: med.name,
                 type: 'Tablet', // Defaulting to Tablet for scanned meds
                 quantity: 10,   // Default starter quantity

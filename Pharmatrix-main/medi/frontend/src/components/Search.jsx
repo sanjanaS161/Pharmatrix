@@ -3,7 +3,7 @@ import axios from 'axios';
 import { Search as SearchIcon, AlertTriangle, ArrowRight, Activity, CalendarDays, User, Loader2 } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 
-const API_URL = 'http://pharmatrix-backend.onrender.com';
+const API_URL = 'https://pharmatrix-backend.onrender.com';
 
 function Search() {
     const [step, setStep] = useState('initial'); // 'initial', 'details', or 'results'

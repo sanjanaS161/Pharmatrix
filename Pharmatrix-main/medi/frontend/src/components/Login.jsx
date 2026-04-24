@@ -5,7 +5,7 @@ import { useAuth } from '../AuthContext';
 import { Phone, User, ShieldCheck, ShieldAlert, CheckCircle2, Loader2, Globe, ChevronDown } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 
-const API_URL = 'http://pharmatrix-backend.onrender.com';
+const API_URL = 'https://pharmatrix-backend.onrender.com';
 
 const COUNTRY_CODES = [
     { code: '+91', country: 'India', flag: '🇮🇳' },
@@ -29,7 +29,7 @@ function Login() {
     // Form Data
     const [loginId, setLoginId] = useState(''); // Username or Email
     const [password, setPassword] = useState('');
-    
+
     // Signup specific fields
     const [username, setUsername] = useState('');
     const [email, setEmail] = useState('');
@@ -52,7 +52,7 @@ function Login() {
             // Fast transition to success
             setAnimationState('success');
             login(res.data.user);
-            
+
             // Navigate back to where user came from
             setTimeout(() => navigate(from, { replace: true }), 600);
         } catch (err) {
@@ -67,7 +67,7 @@ function Login() {
     const handleSignup = async (e) => {
         e.preventDefault();
         setError('');
-        
+
         if (signupPassword.length < 6) {
             setError('Password must be at least 6 characters.');
             return;
@@ -207,20 +207,20 @@ function Login() {
                                         Pharma<span style={{ color: 'var(--accent-primary)' }}>trix</span>
                                     </h1>
                                     <div style={{ display: 'flex', gap: '1rem', marginBottom: '2.5rem' }}>
-                                        <button 
+                                        <button
                                             onClick={() => { setActiveTab('signin'); setError(''); }}
-                                            style={{ 
-                                                flex: 1, padding: '0.75rem', borderRadius: '8px', 
+                                            style={{
+                                                flex: 1, padding: '0.75rem', borderRadius: '8px',
                                                 background: activeTab === 'signin' ? 'rgba(47,128,237,0.12)' : 'transparent',
                                                 border: activeTab === 'signin' ? '1px solid var(--accent-primary)' : '1px solid rgba(0,0,0,0.12)',
                                                 color: activeTab === 'signin' ? 'var(--accent-primary)' : 'var(--text-secondary)',
                                                 cursor: 'pointer', transition: 'all 0.3s'
                                             }}
                                         >Login</button>
-                                        <button 
+                                        <button
                                             onClick={() => { setActiveTab('signup'); setError(''); }}
-                                            style={{ 
-                                                flex: 1, padding: '0.75rem', borderRadius: '8px', 
+                                            style={{
+                                                flex: 1, padding: '0.75rem', borderRadius: '8px',
                                                 background: activeTab === 'signup' ? 'rgba(47,128,237,0.12)' : 'transparent',
                                                 border: activeTab === 'signup' ? '1px solid var(--accent-primary)' : '1px solid rgba(0,0,0,0.12)',
                                                 color: activeTab === 'signup' ? 'var(--accent-primary)' : 'var(--text-secondary)',
@@ -248,10 +248,10 @@ function Login() {
                                 {/* Form Section */}
                                 <AnimatePresence mode="wait">
                                     {activeTab === 'signin' ? (
-                                        <motion.form 
+                                        <motion.form
                                             key="login-form"
                                             initial={{ opacity: 0, x: -20 }} animate={{ opacity: 1, x: 0 }} exit={{ opacity: 0, x: 20 }}
-                                            onSubmit={handleLogin} 
+                                            onSubmit={handleLogin}
                                             style={{ display: 'flex', flexDirection: 'column', gap: '1.5rem' }}
                                             autoComplete="off"
                                         >
@@ -293,10 +293,10 @@ function Login() {
                                             </motion.button>
                                         </motion.form>
                                     ) : (
-                                        <motion.form 
+                                        <motion.form
                                             key="signup-form"
                                             initial={{ opacity: 0, x: 20 }} animate={{ opacity: 1, x: 0 }} exit={{ opacity: 0, x: -20 }}
-                                            onSubmit={handleSignup} 
+                                            onSubmit={handleSignup}
                                             style={{ display: 'flex', flexDirection: 'column', gap: '1.2rem' }}
                                             autoComplete="off"
                                         >
@@ -328,11 +328,11 @@ function Login() {
                                                 <Phone size={16} className="input-icon" />
                                                 <div style={{ display: 'flex', alignItems: 'center', borderBottom: '1px solid var(--glass-border)', position: 'relative' }}>
                                                     <div style={{ position: 'relative', display: 'flex', alignItems: 'center', cursor: 'pointer', paddingLeft: '2rem' }}>
-                                                        <select 
+                                                        <select
                                                             value={selectedCountry.code}
                                                             onChange={(e) => setSelectedCountry(COUNTRY_CODES.find(c => c.code === e.target.value))}
                                                             style={{
-                                                                background: 'none', border: 'none', color: 'var(--accent-primary)', 
+                                                                background: 'none', border: 'none', color: 'var(--accent-primary)',
                                                                 fontSize: '0.85rem', fontWeight: '600', cursor: 'pointer',
                                                                 appearance: 'none', paddingRight: '12px'
                                                             }}

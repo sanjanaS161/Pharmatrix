@@ -5,7 +5,7 @@ import { useAuth } from '../AuthContext';
 import { Phone, User, ShieldCheck, ShieldAlert, CheckCircle2, Loader2, Globe, ChevronDown } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 
-const API_URL = 'http://pharmatrix-backend.onrender.com';
+const API_URL = 'https://pharmatrix-backend.onrender.com';
 
 const COUNTRY_CODES = [
     { code: '+91', country: 'India', flag: '🇮🇳' },
@@ -84,6 +84,7 @@ function Login() {
             }
 
             const fullPhone = selectedCountry.code + cleanPhone;
+            console.log({ username, email, fullPhone, signupPassword });
             const res = await axios.post(`${API_URL}/register`, {
                 username: username.trim(),
                 email: email.trim(),

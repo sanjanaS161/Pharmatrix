@@ -7,8 +7,7 @@ import {
     Syringe, Shield, Clock, Bell, Activity, ChevronDown,
     CheckCircle2, RefreshCw
 } from 'lucide-react';
-
-const API_URL = 'http://pharmatrix-backend.onrender.com';
+import API_URL from '../api';
 
 const MEDICINE_TYPES = ['All', 'Tablet', 'Capsule', 'Syrup', 'Injection', 'Drops', 'Cream', 'Other'];
 
@@ -507,9 +506,7 @@ function Cabinet() {
                                         </div>
 
                                         {expandedInteraction === idx && (
-                                            <motion.div
-                                                initial={{ height: 0, opacity: 0 }}
-                                                animate={{ height: 'auto', opacity: 1 }}
+                                            <div
                                                 style={{ overflow: 'hidden', marginTop: '1.25rem', paddingTop: '1.25rem', borderTop: '1px solid var(--glass-border)' }}
                                             >
                                                 <div style={{ marginBottom: '1rem' }}>
@@ -520,7 +517,7 @@ function Cabinet() {
                                                     <label style={{ ...labelStyle, color: 'var(--accent-primary)', fontSize: '0.75rem' }}>Recommendation</label>
                                                     <p style={{ margin: 0, color: 'var(--text-primary)', fontSize: '0.9rem', fontWeight: 600 }}>{inter.recommendation}</p>
                                                 </div>
-                                            </motion.div>
+                                            </div>
                                         )}
                                         
                                         <div style={{ display: 'flex', justifyContent: 'center', marginTop: '0.75rem' }}>

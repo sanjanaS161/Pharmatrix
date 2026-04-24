@@ -9,8 +9,7 @@ import {
     Heart, Coffee, Sun, Moon, Droplets, Save, RefreshCw,
     Check
 } from 'lucide-react';
-
-const API_URL = 'http://pharmatrix-backend.onrender.com';
+import API_URL from '../api';
 
 const CATEGORIES = [
     {

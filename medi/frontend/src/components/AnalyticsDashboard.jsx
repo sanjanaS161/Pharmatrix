@@ -13,8 +13,7 @@ import {
     Pill,
     ClipboardList,
 } from 'lucide-react';
-
-const API_URL = 'http://pharmatrix-backend.onrender.com';
+import API_URL from '../api';
 
 const TYPE_COLORS = {
     Tablet: '#2f80ed',

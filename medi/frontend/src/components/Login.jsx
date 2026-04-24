@@ -4,8 +4,7 @@ import { useNavigate, useLocation } from 'react-router-dom';
 import { useAuth } from '../AuthContext';
 import { Phone, User, ShieldCheck, ShieldAlert, CheckCircle2, Loader2, Globe, ChevronDown } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
-
-const API_URL = 'https://pharmatrix-backend.onrender.com';
+import API_URL from '../api';
 
 const COUNTRY_CODES = [
     { code: '+91', country: 'India', flag: '🇮🇳' },
@@ -44,7 +43,7 @@ function Login() {
         setAnimationState('authenticating');
 
         try {
-           const res = await axios.post(`${API_URL}/login`, {
+           const res = await axios.post(`${API_URL}/auth/login`, {
                 login_id: loginId.trim(),
                 password: password
             });
@@ -85,7 +84,7 @@ function Login() {
 
             const fullPhone = selectedCountry.code + cleanPhone;
             console.log({ username, email, fullPhone, signupPassword });
-            const res = await axios.post(`${API_URL}/register`, {
+            const res = await axios.post(`${API_URL}/auth/register`, {
                 username: username.trim(),
                 email: email.trim(),
                 phone_number: fullPhone,

@@ -16,7 +16,7 @@ if os.path.exists(db_path):
 # Also try the POST and print full response
 try:
     print("\nTesting /cabinet POST...")
-    r = requests.post('http://pharmatrix-backend.onrender.com/cabinet', json={
+    r = requests.post('https://pharmatrix-backend.onrender.com/cabinet', json={
         'name': 'Test Medicine', 'type': 'Tablet', 'quantity': 10, 'expiry_date': '2026-12-31',
         'dosage_instructions': 'Take 1 daily', 'reminder_time': '08:00 AM', 'notes': 'Test note'
     })
@@ -24,12 +24,12 @@ try:
     print('Response:', r.text[:500])
 
     print("\nTesting /diet-plan/Age...")
-    r = requests.get('http://pharmatrix-backend.onrender.com/diet-plan/Age')
+    r = requests.get('https://pharmatrix-backend.onrender.com/diet-plan/Age')
     print('Status:', r.status_code)
     print('Response:', r.text[:1000])
 
     print("\nTesting /diet-plan/Medicine...")
-    r = requests.get('http://pharmatrix-backend.onrender.com/diet-plan/Medicine')
+    r = requests.get('https://pharmatrix-backend.onrender.com/diet-plan/Medicine')
     print('Status:', r.status_code)
     print('Response:', r.text[:1000])
 except Exception as e:

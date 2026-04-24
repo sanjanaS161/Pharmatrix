@@ -2,7 +2,7 @@ import React, { useRef, useState, useEffect, useCallback } from 'react';
 import axios from 'axios';
 import { Camera, Upload, RefreshCw, Volume2, VolumeX, BriefcaseMedical, CheckCircle2, Loader2 } from 'lucide-react';
 
-const API_URL = 'http://pharmatrix-backend.onrender.com';
+const API_URL = 'https://pharmatrix-backend.onrender.com';
 
 function Scanner() {
     const videoRef = useRef(null);
@@ -58,7 +58,12 @@ function Scanner() {
         formData.append('file', file, file.name || 'scan.jpg');
 
         try {
-            const response = await axios.post(`${API_URL}/scan`, formData);
+            const response = await axios.post(`${API_URL}/scan`, formData, {
+                headers: {
+                    "Content-Type": "multipart/form-data"
+                },
+                withCredentials: false
+            });
             const data = response.data;
 
             // Non-medicine image detected
@@ -190,15 +195,15 @@ function Scanner() {
         setError(null);
         try {
             const med = result.medicine_data;
-          await axios.post(`${API_URL}/cabinet`, {
-             user_id: 6,  
-            name: med.name,
-            type: 'Tablet',
-            quantity: 10,
-            expiry_date: med.expiry_date || new Date(Date.now() + 365*24*60*60*1000).toISOString().split('T')[0],
-            dosage_instructions: med.dosage || '',
-            notes: `Added from scan. Generic: ${med.generic_name || 'Unknown'}`
-});
+            await axios.post(`${API_URL}/cabinet`, {
+                user_id: 6,
+                name: med.name,
+                type: 'Tablet',
+                quantity: 10,
+                expiry_date: med.expiry_date || new Date(Date.now() + 365 * 24 * 60 * 60 * 1000).toISOString().split('T')[0],
+                dosage_instructions: med.dosage || '',
+                notes: `Added from scan. Generic: ${med.generic_name || 'Unknown'}`
+            });
             setAddSuccess(true);
             setTimeout(() => setAddSuccess(false), 3000);
         } catch (err) {

@@ -17,11 +17,7 @@ import notification_service
 
 app = FastAPI()
 
-@app.get("/")
-def read_root():
-    return {"status": "ok", "message": "Pharmatrix API is running"}
-
-# CORS
+# CORS — must be registered before any routes
 app.add_middleware(
     CORSMiddleware,
     allow_origins=["*"],
@@ -29,6 +25,10 @@ app.add_middleware(
     allow_methods=["*"],
     allow_headers=["*"],
 )
+
+@app.get("/")
+def read_root():
+    return {"status": "ok", "message": "Pharmatrix API is running"}
 
 # Database Initialization
 models.Base.metadata.create_all(bind=database.engine)
